@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: analysis-agent
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/analysis_agent
+    username: postgres
+    password: pass
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.example.analysisagent.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      table-underline: true
+server:
+  port: 8080
+
+app:
+  ai:
+    base-url: ${APP_AI_BASE_URL:https://api.925214.xyz}
+    api-key: ${APP_AI_API_KEY:sk-nXz8h1kiwCS5sFb0z1uxb9OmFtw3ehPXe9kfNlAFs62MfQQU}
+    model: ${APP_AI_MODEL:gpt-5.4}
+  scheduler:
+    enabled: false
+    daily-report-cron: ${APP_DAILY_REPORT_CRON:0 0 8 * * ?}
+
+logging:
+  level:
+    root: INFO
