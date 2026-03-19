@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: analysis-agent-local
+
+app:
+  ai:
+    base-url: https://your-base-url
+    api-key: your-api-key
+    model: your-model-name

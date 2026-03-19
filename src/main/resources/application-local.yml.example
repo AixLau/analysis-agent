@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/analysis_agent
+    username: postgres
+    password: postgres
+
+app:
+  ai:
+    base-url: https://your-base-url
+    api-key: your-api-key
+    model: your-model-name
+  scheduler:
+    enabled: false
+    daily-report-cron: 0 0 8 * * ?
